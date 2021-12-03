@@ -1,0 +1,27 @@
+﻿@model ETicaretMvc.Models.Sınıflar.Urun
+
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/AnasayfaLayout.cshtml";
+}
+
+<h2>UrunGetir</h2>
+<form class="form-group" method="post">
+    @*@Html.LabelFor(x => x.)
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+    <br />*@
+    @Html.LabelFor(x => x.UrunAd)
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Marka)
+    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.SatisFiyati)
+    @Html.TextBoxFor(x => x.SatisFiyati, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Kategori.KategoriAd)
+    @Html.TextBoxFor(x => x.Kategori.KategoriAd, new { @class = "form-control" })
+    <button class="btn btn-info">Kaydet</button>
+
+</form>
+

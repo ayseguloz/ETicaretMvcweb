@@ -1,0 +1,44 @@
+﻿@model ETicaretMvc.Models.Sınıflar.Urun
+
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/AnasayfaLayout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-success" style="color:darkgoldenrod">
+                <tr>
+                    <td>
+                        <label>Hoşgeldin  @HttpContext.Current.User.Identity.Name</label>
+
+                    </td>
+                </tr>
+            </table>
+
+            <h2>Sepete Ürün Ekleme Sayfası</h2>
+            @using (Html.BeginForm("Ekle", "Anasayfa", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.UrunId)
+                    @Html.LabelFor(x => x.UrunAd)
+                    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+                    <br />
+
+                    @Html.LabelFor(x => x.Marka)
+                    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(x => x.SatisFiyati)
+                    @Html.TextBoxFor(x => x.SatisFiyati, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(x => x.Kategori.KategoriAd)
+                    @Html.TextBoxFor(x => x.Kategori.KategoriAd, new { @class = "form-control" })
+                    <br />
+            
+
+                </div>
+                <button class="btn btn-success"style="width:150px">Ekle</button>
+            }
+        </div>
+    </div>
+</div>

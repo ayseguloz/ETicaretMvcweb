@@ -1,0 +1,143 @@
+﻿@using ETicaretMvc.Models.Sınıflar;
+@model List<Sepet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnasayfaLayout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-success" style="color:darkgoldenrod">
+                <tr>
+                    <td>
+                        <label>Hoşgeldin  @HttpContext.Current.User.Identity.Name</label>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+
+                <li class="active">Ödeme Yeri</li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+
+            <br />
+            <table class="table table-bordered" style="margin-top:20px">
+                <tr>
+                    <th>Cari Id</th>
+                    <th>Ürün Adı</th>
+                    <th>Fiyatı</th>
+                    <th>Görsel</th>
+
+
+                    <th>Sepet İşlemleri</th>
+
+                </tr>
+                @foreach (var k in Model)
+                {
+
+            <tr>
+                <td>
+                    @k.CariId
+                </td>
+
+                <td>
+                    @k.Urun.UrunAd
+                </td>
+                <td>
+                   @k.Urun.SatisFiyati
+                </td>
+                <td>
+                    <img src="@k.Urun.UrunGorsel" alt=" " width="100" height="100"/>
+                </td>
+
+                <td><a href="/Odeme/UrunSil/@k.SepetId" class="btn btn-default add-to-car" style="background-color:orange">Sepetten Çıkar</a></td>
+
+            </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+</section> <!--/#cart_items-->
+
+<section id="do_action">
+    <div class="container">
+        <div class="heading">
+            <h3>Bundan sonra ne yapmak istersiniz?</h3>
+            <p>İndirim kodunuz olup olmadığını veya kullanmak istediğiniz ödül puanlarınız olup olmadığını veya teslimat maliyetinizi tahmin etmek isteyip istemediğinizi seçin.</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="chose_area">
+                    <ul class="user_option">
+                        <li>
+                            <input type="checkbox">
+                            <label>Kupon Kullan</label>
+                        </li>
+                        <li>
+                            <input type="checkbox">
+                            <label>Hediye çeki kullan</label>
+                        </li>
+
+                    </ul>
+                    <ul class="user_info">
+                        <li class="single_field">
+                            <label>Ülke:</label>
+                            <select>
+                                <option>Türkiye</option>
+                                <option>Bangladesh</option>
+                                <option>UK</option>
+                                <option>India</option>
+                                <option>Pakistan</option>
+                                <option>Ucrane</option>
+                                <option>Canada</option>
+                                <option>Dubai</option>
+                            </select>
+
+                        </li>
+                        <li class="single_field">
+                            <label>Bölge/Şehir:</label>
+                            <select>
+                                <option>Seç</option>
+                                <option>İstanbul</option>
+                                <option>London</option>
+                                <option>Dillih</option>
+                                <option>Lahore</option>
+                                <option>Alaska</option>
+                                <option>Canada</option>
+                                <option>Dubai</option>
+                            </select>
+
+                        </li>
+                        <li class="single_field zip-field">
+                            <label>Kod:</label>
+                            <input type="text">
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-default check_out" href="">Kullan</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="total_area">
+                    <ul>
+
+
+                        <li>Kargo <span>Ücretsiz</span></li>
+                        <li>Toplam Tutar <span>61 TL</span></li>
+                    </ul>
+                    <a class="btn btn-default update" href="">Öde</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#do_action-->

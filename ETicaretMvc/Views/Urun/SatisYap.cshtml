@@ -1,0 +1,36 @@
+﻿@model ETicaretMvc.Models.Sınıflar.SatisHareket
+@{
+    ViewBag.Title = "SatisYap";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>SatisYap</h2>
+
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.UrunId)
+   <input type="text" name="UrunId" value="@ViewBag.dg1" class="form-control" />
+    <br />
+    @Html.LabelFor(x => x.PersonelId)
+    @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariId)
+    @Html.TextBoxFor(x => x.CariId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Adet)
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fiyat)
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.ToplamTutar)
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Satış Yap</button>
+
+</form>
+

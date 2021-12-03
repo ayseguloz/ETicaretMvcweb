@@ -1,0 +1,137 @@
+﻿@using ETicaretMvc.Models.Sınıflar;
+@model List<Urun>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnasayfaLayout.cshtml";
+}
+@using (Html.BeginForm("Index", "Anasayfa", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-success" style="color:darkgoldenrod">
+                    <tr>
+                        <td>
+                            <label>Hoşgeldin  @HttpContext.Current.User.Identity.Name</label>
+
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </div>
+                <section id="slider">
+                    <!--slider-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="col-sm-6">
+                                            <h1><span>E</span>-SHOPPER</h1>
+                                            <h2>Yaz indirimleri başlıyor!</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                            <button type="button" class="btn btn-default get" >Alışverişe Başla</button>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <img src="https://i.superhaber.tv/2/1280/800/storage/files/images/2020/11/22/e123-p5Jf_cover.jpg.webp" class="girl img-responsive" alt="" />
+                                           @* <img src="https://i.superhaber.tv/2/1280/800/storage/files/images/2020/11/22/e123-p5Jf_cover.jpg.webp" class="pricing" alt="" />*@
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="left-sidebar">
+                                    <h2>Kategori</h2>
+                                    <div class="panel-group category-products" id="accordian">
+                                        <!--category-productsr-->
+
+
+
+                                        @foreach (var x in Model)
+                                        {
+
+
+
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title"><a href="#">@x.Kategori.KategoriAd</a></h4>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div><!--/category-products-->
+
+
+                                    <div class="brands_products">
+                                        <!--brands_products-->
+                                        <h2>Markalar</h2>
+                                        <div class="brands-name">
+                                            @foreach (var x in Model)
+                                            {
+
+
+                                                <ul class="nav nav-pills nav-stacked">
+                                                    <li><a href="#"> <span class="pull-right"></span>@x.Marka</a></li>
+
+                                                </ul>
+                                            }
+                                        </div>
+                                    </div><!--/brands_products-->
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-9 padding-right">
+                                <div class="features_items">
+                                    <!--features_items-->
+                                    <h2 class="title text-center">En Çok Satanlar</h2>
+                                    @foreach (var x in Model)
+                                    {
+
+
+                                        <div class="col-sm-4">
+
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <img src="@x.UrunGorsel" alt="" width="200" height="200"/>
+                                                        <h2>@x.SatisFiyati</h2>
+                                                        <p>@x.UrunAd</p>
+                                                        <a href="/Anasayfa/UrunGetir/@x.UrunId" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div><!--features_items-->
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                }
+
